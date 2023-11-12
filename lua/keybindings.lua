@@ -12,6 +12,7 @@ vim.api.nvim_set_keymap('n', '<Leader>nt', ':NvimTreeToggle<CR>', {noremap = tru
 vim.api.nvim_set_keymap('n', '<Leader>tg', ':TagbarToggle<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<Leader>rc', ':rightbelow vnew $MYVIMRC<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<Leader>cr', ':LspRestart<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<esc>', ':noh<CR><CR>', {noremap = true})
 
 -- Window navigation mappings
 vim.api.nvim_set_keymap('', '<C-h>', '<C-w>h', {noremap = true})
@@ -45,7 +46,8 @@ vim.g.buffergator_suppress_keymaps = 1
 vim.api.nvim_set_keymap('n', '<S-h>', ':bprev<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<S-l>', ':bnext<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-t>', ':enew<cr> <BAR> CtrlP<cr>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<C-w>', ':q<cr>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<C-q>', ':q<cr>', {noremap = true})
 
 -- Close buffer mapping
 vim.api.nvim_set_keymap('', '<C-w>', ':bp<bar>sp<bar>bn<bar>bd<CR>', {noremap = true})
+

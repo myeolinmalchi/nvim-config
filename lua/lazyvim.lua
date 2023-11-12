@@ -19,6 +19,7 @@ require('lazy').setup({
       {'nvim-tree/nvim-web-devicons', opt = true }
     }
   }, 
+  --[[
   {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
@@ -31,15 +32,21 @@ require('lazy').setup({
         'nvim-telescope/telescope-fzf-native.nvim',
         -- NOTE: If you are having trouble with this installation,
         --       refer to the README for telescope-fzf-native for more instructions.
-        build = 'make',
-        cond = function()
-          return vim.fn.executable 'make' == 1
-        end,
+        build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' 
       },
     },
   },
-
-
+  --]]
+  'nvim-lua/plenary.nvim',
+  {
+    "ibhagwan/fzf-lua",
+    -- optional for icon support
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      -- calling `setup` is optional for customization
+      require("fzf-lua").setup({})
+    end
+  },
   {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'}, 
   'HerringtonDarkholme/yats.vim', 
   'maxmellon/vim-jsx-pretty', 
@@ -54,7 +61,7 @@ require('lazy').setup({
   'chriskempson/base16-vim', 
   'Raimondi/delimitMate', 
 
-  'ctrlpvim/ctrlp.vim', 
+  --'ctrlpvim/ctrlp.vim', 
   'itchyny/vim-cursorword', 
 
   --'preservim/nerdcommenter', 

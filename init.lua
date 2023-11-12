@@ -60,11 +60,14 @@ require('plugins/cmp')
 require('plugins/indentblankline')
 require('plugins/lualine')
 require('plugins/noice')
-require('plugins/telescope')
+--require('plugins/telescope')
 require('plugins/toggleterm')
 require('plugins/treesitter')
 require('plugins/prettier')
 require('plugins/nullls')
+require('plugins/fzflua')
+
+local async = require('plenary.async')
 
 -- Bash Shell과 테마 연동
 local current_theme_name = os.getenv('BASE16_THEME')

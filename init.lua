@@ -47,31 +47,32 @@ vim.opt.path:append('**')
 vim.g.base16colorspace = 256
 vim.opt.inccommand = 'nosplit'
 
+vim.diagnostic.config {
+  float = { border = "rounded" }
+}
+
+
 -- 단축키 설정
 require('keybindings')
 
 -- Lazy.nvim
 require('lazyvim')
 
--- 플러그인 세부설정
+vim.cmd[[colorscheme tokyonight]]
+
+-- 플러그인 세부 설정
 require('plugins/lspconfig')
 require('plugins/bufferline')
 require('plugins/cmp')
 require('plugins/indentblankline')
 require('plugins/lualine')
 require('plugins/noice')
---require('plugins/telescope')
+require('plugins/copilot')
 require('plugins/toggleterm')
 require('plugins/treesitter')
 require('plugins/prettier')
 require('plugins/nullls')
 require('plugins/fzflua')
+require('plugins/tokyonight')
 
 local async = require('plenary.async')
-
--- Bash Shell과 테마 연동
-local current_theme_name = os.getenv('BASE16_THEME')
-if current_theme_name and vim.g.colors_name ~= 'base16-'..current_theme_name then
-  vim.cmd('let base16colorspace=256')
-  vim.cmd('colorscheme base16-'..current_theme_name)
-end

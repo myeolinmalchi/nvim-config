@@ -12,79 +12,79 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-  --'preservim/nerdtree', 
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {}
+  }, 
+  --[[
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
+  }, 
+  --]]
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    ---@type Flash.Config
+    opts = {},
+    -- stylua: ignore
+    keys = {
+      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+      { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+      { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+      { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+      { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+    },
+  }, 
+
   {
     'nvim-lualine/lualine.nvim',
     dependencies = {
       {'nvim-tree/nvim-web-devicons', opt = true }
     }
   }, 
-  --[[
+
   {
-    'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      -- Fuzzy Finder Algorithm which requires local dependencies to be built.
-      -- Only load if `make` is available. Make sure you have the system
-      -- requirements installed.
-      {
-        'nvim-telescope/telescope-fzf-native.nvim',
-        -- NOTE: If you are having trouble with this installation,
-        --       refer to the README for telescope-fzf-native for more instructions.
-        build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' 
-      },
-    },
-  },
-  --]]
+    "folke/zen-mode.nvim",
+    opts = {}
+  }, 
+
   'nvim-lua/plenary.nvim',
+
   {
     "ibhagwan/fzf-lua",
-    -- optional for icon support
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      -- calling `setup` is optional for customization
       require("fzf-lua").setup({})
     end
   },
-  {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'}, 
-  'HerringtonDarkholme/yats.vim', 
-  'maxmellon/vim-jsx-pretty', 
-  'nanotech/jellybeans.vim', 
-  --'Xuyuanp/nerdtree-git-plugin', 
 
-  --'alvan/vim-closetag', 
-  'mattn/emmet-vim', 
+  {
+    'akinsho/bufferline.nvim', 
+    version = "*", 
+    dependencies = 'nvim-tree/nvim-web-devicons'
+  }, 
 
-  'jeetsukumaran/vim-buffergator', 
-  'ryanoasis/vim-devicons', 
-  'chriskempson/base16-vim', 
-  'Raimondi/delimitMate', 
-
-  --'ctrlpvim/ctrlp.vim', 
-  'itchyny/vim-cursorword', 
-
-  --'preservim/nerdcommenter', 
-  'prisma/vim-prisma', 
-  'vim-scripts/LargeFile', 
-  'tpope/vim-fugitive',
   'RRethy/nvim-base16',
 
   {
     "folke/noice.nvim",
     event = "VeryLazy",
-    opts = {
-      -- add any options here
-    },
+    opts = {},
     dependencies = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
       "MunifTanjim/nui.nvim",
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
       "rcarriga/nvim-notify",
     }
   }, 
+
+  'm4xshen/autoclose.nvim', 
 
   'jose-elias-alvarez/null-ls.nvim', 
   'MunifTanjim/prettier.nvim', 
@@ -96,47 +96,42 @@ require('lazy').setup({
       vim.o.timeout = true
       vim.o.timeoutlen = 300
     end,
-    opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    }
+    opts = {}
   }, 
   {
     'windwp/nvim-autopairs',
     event = "InsertEnter",
-    opts = {} -- this is equalent to setup({}) function
+    opts = {}
   },
 
-{
-  "nvim-tree/nvim-tree.lua",
-  version = "*",
-  lazy = false,
-  dependencies = {
-    "nvim-tree/nvim-web-devicons",
-  },
-  config = function()
-    require("nvim-tree").setup {
+  {
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
+    lazy = false,
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require("nvim-tree").setup {
         view = {
           width = 40, 
         }, 
-      renderer = {
-        group_empty = true
-      }, 
-      filters = {
-        dotfiles = true
+        renderer = {
+          group_empty = true
+        }, 
+        filters = {
+          dotfiles = true
+        }
       }
-    }
-  end,
-}, 
-
-
-
-  --{
-  --  'prettier/vim-prettier', 
-  --  run = 'yarn install --frozen-lockfile --production'
-  --},
-  'preservim/tagbar', 
+    end,
+  }, 
+  'zbirenbaum/copilot.lua',
+  {
+    "zbirenbaum/copilot-cmp",
+    config = function ()
+      require("copilot_cmp").setup()
+    end
+  }, 
   {
     'akinsho/toggleterm.nvim', 
     tag = '*'
@@ -146,26 +141,16 @@ require('lazy').setup({
     build = ':TSUpdate'
   },
   'lukas-reineke/indent-blankline.nvim', 
-
   {
-    -- LSP Configuration & ins
     'neovim/nvim-lspconfig',
     dependencies = {
-      -- Automatically install LSPs to stdpath for neovim
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
-
-      -- Useful status updates for LSP
-      -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
       { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
-
-      -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
     },
   },
-
   {
-    -- Autocompletion
     'hrsh7th/nvim-cmp',
     dependencies = {
       'hrsh7th/cmp-nvim-lsp',

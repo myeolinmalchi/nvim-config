@@ -10,9 +10,8 @@ require("bufferline").setup{
       }
     }, 
     diagnostics = "nvim_lsp", 
-    separator_style = {"", ""},
-    show_close_icon = false, 
+    show_close_icon = true, 
     show_buffer_close_icons = false, 
-    separator_style = "thick"
+    separator_style = "slant", 
   }
 }

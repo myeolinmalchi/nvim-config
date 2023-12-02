@@ -1,8 +1,11 @@
+local colors = require("tokyonight.colors").setup()
+local util = require("tokyonight.util")
+
 require('fzf-lua').setup {
   winopts = {
-    width = 0.80, 
+    width = 0.70, 
     height = 0.40, 
-    row = 0.1
+    row = 0.1, 
   }, 
 }
 

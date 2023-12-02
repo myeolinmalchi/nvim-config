@@ -1,11 +1,7 @@
---==============================================================
---                        toggleterm 설정
---==============================================================
-
 require("toggleterm").setup {
-  shade_terminals = false, 
+  size = 15, 
   open_mapping = [[<c-\>]],
-  direction = 'float'
+  direction = 'horizontal'
 }
 
 local Terminal = require('toggleterm.terminal').Terminal

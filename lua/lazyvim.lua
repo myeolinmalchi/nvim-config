@@ -161,4 +161,9 @@ require('lazy').setup({
       'hrsh7th/cmp-vsnip'
     },
   },
+  {
+    "eoh-bse/minintro.nvim",
+    config = true,
+    lazy = false
+  }
 })

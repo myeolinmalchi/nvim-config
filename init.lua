@@ -46,33 +46,29 @@ vim.opt.viewoptions:remove('options')
 vim.opt.path:append('**')
 vim.g.base16colorspace = 256
 vim.opt.inccommand = 'nosplit'
-
 vim.diagnostic.config {
   float = { border = "rounded" }
 }
 
-
--- 단축키 설정
 require('keybindings')
-
--- Lazy.nvim
 require('lazyvim')
 
-vim.cmd[[colorscheme tokyonight]]
+require('plugins/tokyonight')
+vim.cmd[[colorscheme tokyonight-night]]
 
--- 플러그인 세부 설정
 require('plugins/lspconfig')
 require('plugins/bufferline')
 require('plugins/cmp')
-require('plugins/indentblankline')
+require('plugins/indent_blankline')
 require('plugins/lualine')
 require('plugins/noice')
 require('plugins/copilot')
 require('plugins/toggleterm')
 require('plugins/treesitter')
 require('plugins/prettier')
-require('plugins/nullls')
+require('plugins/eslint')
+require('plugins/null_ls')
 require('plugins/fzflua')
-require('plugins/tokyonight')
+require('plugins/session_manager')
 
 local async = require('plenary.async')

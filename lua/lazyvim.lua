@@ -13,12 +13,18 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
   {
+    'goolord/alpha-nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function ()
+      require'alpha'.setup(require'alpha.themes.startify'.config)
+    end
+  }, 
+  {
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
     opts = {}
-  }, 
-  --[[
+  },
   {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -28,7 +34,6 @@ require('lazy').setup({
       -- refer to the configuration section below
     },
   }, 
-  --]]
   {
     "folke/flash.nvim",
     event = "VeryLazy",
@@ -43,7 +48,6 @@ require('lazy').setup({
       { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
     },
   }, 
-
   {
     'nvim-lualine/lualine.nvim',
     dependencies = {
@@ -57,6 +61,7 @@ require('lazy').setup({
   }, 
 
   'nvim-lua/plenary.nvim',
+  'Shatur/neovim-session-manager',
 
   {
     "ibhagwan/fzf-lua",
@@ -88,6 +93,7 @@ require('lazy').setup({
 
   'jose-elias-alvarez/null-ls.nvim', 
   'MunifTanjim/prettier.nvim', 
+  'MunifTanjim/eslint.nvim',
 
   {
     "folke/which-key.nvim",
@@ -125,13 +131,9 @@ require('lazy').setup({
       }
     end,
   }, 
+
   'zbirenbaum/copilot.lua',
-  {
-    "zbirenbaum/copilot-cmp",
-    config = function ()
-      require("copilot_cmp").setup()
-    end
-  }, 
+
   {
     'akinsho/toggleterm.nvim', 
     tag = '*'
@@ -161,9 +163,4 @@ require('lazy').setup({
       'hrsh7th/cmp-vsnip'
     },
   },
-  {
-    "eoh-bse/minintro.nvim",
-    config = true,
-    lazy = false
-  }
 })

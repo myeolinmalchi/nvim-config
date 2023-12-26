@@ -1,7 +1,7 @@
 local prettier = require("prettier")
 
 prettier.setup({
-  bin = 'prettier', -- or `'prettierd'` (v0.23.3+)
+  bin = 'prettier',
   filetypes = {
     "css",
     "graphql",
@@ -18,3 +18,6 @@ prettier.setup({
     "astro"
   },
 })
+
+vim.api.nvim_set_keymap('n', '<leader>f', '<Plug>(prettier-format)', {noremap = true})
+vim.api.nvim_set_keymap('x', '<leader>f', '<Plug>(prettier-format)', {noremap = true})

@@ -35,7 +35,7 @@ vim.opt.clipboard = 'unnamedplus'
 vim.opt.iminsert = 1
 vim.opt.mouse = 'a'
 vim.opt.laststatus = 2
-vim.opt.wrap = true
+vim.opt.wrap = false
 vim.opt.backspace = {'eol', 'start', 'indent'}
 vim.opt.cursorline = false
 vim.opt.cursorcolumn = false
@@ -70,5 +70,7 @@ require('plugins/eslint')
 require('plugins/null_ls')
 require('plugins/fzflua')
 require('plugins/session_manager')
+require('plugins/neo_tree')
+require('plugins/window_picker')
 
 local async = require('plenary.async')

@@ -6,11 +6,9 @@ vim.api.nvim_set_keymap('n', 'k', 'gk', {noremap = true})
 vim.api.nvim_set_keymap('n', 'gj', 'j', {noremap = true})
 vim.api.nvim_set_keymap('n', 'gk', 'k', {noremap = true})
 
--- NERDTree, Tagbar, and LSP mappings
---vim.api.nvim_set_keymap('n', '<Leader>nt', ':NERDTreeToggle<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<Leader>nt', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>nt', ':Neotree current toggle<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>nf', ':Neotree buffers current toggle<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<Leader>tg', ':TagbarToggle<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<Leader>rc', ':rightbelow vnew $MYVIMRC<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<Leader>cr', ':LspRestart<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<esc>', ':noh<CR><CR>', {noremap = true, silent = true})
 
@@ -24,11 +22,17 @@ vim.api.nvim_set_keymap('', '<C-l>', '<C-w>l', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('i', '<C-s>', '<C-o>:w<CR><Esc>', {noremap = true, silent = true})
 
--- Split window mappings
-vim.api.nvim_set_keymap('n', '<leader>h', ':vsp +<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<leader>l', ':vsp -<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<leader>j', ':sp -<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<leader>k', ':sp +<CR>', {noremap = true, silent = true})
+-- 윈도우 분할
+vim.api.nvim_set_keymap('n', '<leader>h', ':leftabove vnew<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>l', ':rightbelow vnew<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>j', ':belowright split | enew<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>k', ':split | enew<CR>', {noremap = true, silent = true})
+
+-- 윈도우 크기 조절
+vim.api.nvim_set_keymap('n', '<C-Up>', ':resize +2<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<C-Down>', ':resize -2<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<C-Right>', ':vertical resize +4<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<C-Left>', ':vertical resize -4<CR>', {noremap = true, silent = true})
 
 -- Git mappings
 vim.api.nvim_set_keymap('n', '<leader>ga', ':Git add %<TAB><Cr> G status<CR>', {noremap = true})
@@ -46,7 +50,7 @@ vim.g.buffergator_suppress_keymaps = 1
 vim.api.nvim_set_keymap('n', '<S-h>', ':bprev<cr>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<S-l>', ':bnext<cr>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<C-t>', ':enew<cr> <BAR> CtrlP<cr>', {noremap = true, silent =true})
-vim.api.nvim_set_keymap('n', '<C-q>', ':q<cr>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<C-q>', ':bp<bar>sp<bar>bn<bar>bd<bar>q<CR>', {noremap = true, silent = true})
 
 -- Close buffer mapping
 vim.api.nvim_set_keymap('', '<C-w>', ':bp<bar>sp<bar>bn<bar>bd<CR>', {noremap = true, silent = true})

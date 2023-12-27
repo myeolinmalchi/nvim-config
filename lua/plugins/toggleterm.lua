@@ -1,7 +1,7 @@
 require("toggleterm").setup {
   size = 15, 
   open_mapping = [[<c-\>]],
-  direction = 'horizontal'
+  direction = 'float'
 }
 
 local Terminal = require('toggleterm.terminal').Terminal

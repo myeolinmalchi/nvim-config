@@ -9,4 +9,4 @@ require('fzf-lua').setup {
   }, 
 }
 
-vim.api.nvim_set_keymap("n", "<C-p>", ":lua require('fzf-lua').files({ cwd = './src' })<Cr>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<C-p>", ":lua require('fzf-lua').files({ cwd = './' })<Cr>", {noremap = true, silent = true})

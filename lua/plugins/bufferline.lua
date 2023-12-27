@@ -2,11 +2,11 @@ require("bufferline").setup{
   options = {
     offsets = {
       {
-        filetype = "NvimTree", 
-        text = "NvimTree", 
+        filetype = "neo-tree", 
+        text = "neo-tree", 
         highlight = "Directory", 
         text_align = "center", 
-        separator = false
+        separator = true
       }
     }, 
     numbers = "buffer_id", 

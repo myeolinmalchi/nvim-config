@@ -1,11 +1,42 @@
+vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
+vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
+
+local border = {
+      {"🭽", "FloatBorder"},
+      {"▔", "FloatBorder"},
+      {"🭾", "FloatBorder"},
+      {"▕", "FloatBorder"},
+      {"🭿", "FloatBorder"},
+      {"▁", "FloatBorder"},
+      {"🭼", "FloatBorder"},
+      {"▏", "FloatBorder"},
+}
+
+-- LSP settings (for overriding per client)
+local handlers =  {
+  ["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = border}),
+  ["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, {border = border }),
+}
+
 local lspconfig = require('lspconfig')
 local configs = require('lspconfig/configs')
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-lspconfig.pyright.setup {}
-lspconfig.tsserver.setup {}
-lspconfig.astro.setup {}
+lspconfig.pyright.setup { handlers = handlers }
+lspconfig.tsserver.setup { handlers = handlers }
+lspconfig.astro.setup { handlers = handlers }
+lspconfig.eslint.setup {
+  handlers = handlers, 
+  on_attach = function(client, bufnr)
+    vim.api.nvim_create_autocmd("BufWritePost", {
+      buffer = bufnr, 
+      command = "EslintFixAll"
+    })
+  end
+}
+
+
 
 lspconfig.emmet_ls.setup({
   -- on_attach = on_attach,
@@ -63,3 +94,4 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end, opts)
   end,
 })
+

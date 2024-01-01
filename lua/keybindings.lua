@@ -6,8 +6,9 @@ vim.api.nvim_set_keymap('n', 'k', 'gk', {noremap = true})
 vim.api.nvim_set_keymap('n', 'gj', 'j', {noremap = true})
 vim.api.nvim_set_keymap('n', 'gk', 'k', {noremap = true})
 
-vim.api.nvim_set_keymap('n', '<Leader>nt', ':Neotree current toggle<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>nt', ':Neotree filesystem current toggle<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<Leader>nf', ':Neotree buffers current toggle<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>ng', ':Neotree current git_status git_base=', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<Leader>tg', ':TagbarToggle<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<Leader>cr', ':LspRestart<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<esc>', ':noh<CR><CR>', {noremap = true, silent = true})
@@ -17,6 +18,8 @@ vim.api.nvim_set_keymap('', '<C-h>', '<C-w>h', {noremap = true})
 vim.api.nvim_set_keymap('', '<C-j>', '<C-w>j', {noremap = true})
 vim.api.nvim_set_keymap('', '<C-k>', '<C-w>k', {noremap = true})
 vim.api.nvim_set_keymap('', '<C-l>', '<C-w>l', {noremap = true})
+
+vim.api.nvim_set_keymap('', 'gt', ':BufferLinePick<CR>', {noremap = true, silent = true})
 
 -- Save file mappings
 vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', {noremap = true, silent = true})

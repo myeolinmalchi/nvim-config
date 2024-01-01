@@ -8,7 +8,7 @@ require("bufferline").setup{
         text_align = "center", 
         separator = true
       }
-    }, 
+    },
     numbers = "buffer_id", 
     indicator = {
       --style = 'underline', 

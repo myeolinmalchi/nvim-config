@@ -17,6 +17,17 @@ prettier.setup({
     "yaml",
     "astro"
   },
+  ["null-ls"] = {
+    condition = function()
+      return prettier.config_exists({
+        check_package_json = true,
+      })
+    end, 
+    runtime_condition = function(params)
+      return true
+    end,
+    timeout = 5000
+  }
 })
 
 vim.api.nvim_set_keymap('n', '<leader>f', '<Plug>(prettier-format)', {noremap = true})

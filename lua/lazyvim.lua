@@ -11,7 +11,20 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup({
+require('lazy').setup({ 
+  {
+    'numToStr/Comment.nvim', 
+    lazy = false,
+  }, 
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
+  },
   {
     's1n7ax/nvim-window-picker',
     name = 'window-picker',
@@ -95,7 +108,6 @@ require('lazy').setup({
 
   'jose-elias-alvarez/null-ls.nvim', 
   'MunifTanjim/prettier.nvim', 
-  'MunifTanjim/eslint.nvim',
 
   {
     "folke/which-key.nvim",
@@ -117,38 +129,27 @@ require('lazy').setup({
     branch = "v3.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
-      "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+      "3rd/image.nvim",
     }
   }, 
-  --[[{
-    "nvim-tree/nvim-tree.lua",
-    version = "*",
-    lazy = false,
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
-    config = function()
-      require("nvim-tree").setup {
-        view = {
-          width = 45, 
-        }, 
-        renderer = {
-          group_empty = true
-        }, 
-        filters = {
-          dotfiles = true
-        }
-      }
-    end,
-  }, ]]--
 
-  'zbirenbaum/copilot.lua',
+  {
+    'zbirenbaum/copilot.lua',
+    lazy = true
+  }, 
+  {
+    'zbirenbaum/copilot-cmp', 
+    config = function ()
+      require("copilot_cmp").setup()
+    end
+  }, 
 
   {
     'akinsho/toggleterm.nvim', 
-    tag = '*'
+    version = '*', 
+    config = true
   },
   {
     'nvim-treesitter/nvim-treesitter', 

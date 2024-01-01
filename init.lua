@@ -35,7 +35,7 @@ vim.opt.clipboard = 'unnamedplus'
 vim.opt.iminsert = 1
 vim.opt.mouse = 'a'
 vim.opt.laststatus = 2
-vim.opt.wrap = false
+vim.opt.wrap = true
 vim.opt.backspace = {'eol', 'start', 'indent'}
 vim.opt.cursorline = false
 vim.opt.cursorcolumn = false
@@ -46,6 +46,7 @@ vim.opt.viewoptions:remove('options')
 vim.opt.path:append('**')
 vim.g.base16colorspace = 256
 vim.opt.inccommand = 'nosplit'
+
 vim.diagnostic.config {
   float = { border = "rounded" }
 }
@@ -57,6 +58,7 @@ require('plugins/tokyonight')
 vim.cmd[[colorscheme tokyonight-night]]
 
 require('plugins/lspconfig')
+require('plugins/null_ls')
 require('plugins/bufferline')
 require('plugins/cmp')
 require('plugins/indent_blankline')
@@ -66,11 +68,10 @@ require('plugins/copilot')
 require('plugins/toggleterm')
 require('plugins/treesitter')
 require('plugins/prettier')
-require('plugins/eslint')
-require('plugins/null_ls')
 require('plugins/fzflua')
 require('plugins/session_manager')
 require('plugins/neo_tree')
 require('plugins/window_picker')
+require('plugins/comments')
 
 local async = require('plenary.async')

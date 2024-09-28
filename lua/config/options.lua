@@ -38,6 +38,7 @@ vim.opt.viewoptions:remove('options')
 vim.opt.path:append('**')
 --vim.g.base16colorspace = 256
 vim.opt.inccommand = 'nosplit'
+vim.opt.conceallevel = 1
 vim.diagnostic.config {
   float = { border = "rounded" }
 }

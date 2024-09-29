@@ -16,7 +16,7 @@ return {
 
       end
       return {
-        size = 20,
+        size = 12,
         open_mapping = [[<c-\>]],
         direction = 'horizontal'
       }

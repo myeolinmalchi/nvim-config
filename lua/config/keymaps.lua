@@ -90,3 +90,5 @@ keymap('n', '<Leader>cr', ':LspRestart<CR>', opts)
 
 -- Choose buffer in tabline
 keymap('', 'gt', ':BufferLinePick<CR>', opts)
+
+keymap('', '<Leader><CR>', ':ObsidianOpen<CR>', opts)

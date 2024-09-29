@@ -79,9 +79,9 @@ return {
       --local actions = require "fzf-lua.actions"
       require "fzf-lua".setup({
         winopts = {
-          width = 0.70, 
-          height = 0.40, 
-          row = 0.1, 
+          width = 0.85,
+          height = 0.50,
+          row = 0.1,
         }, 
       })
       vim.api.nvim_set_keymap("n", "<C-p>", ":lua require('fzf-lua').files({ cwd = './' })<Cr>", {noremap = true, silent = true})

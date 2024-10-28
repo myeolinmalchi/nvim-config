@@ -3,6 +3,7 @@ return {
   {
     'windwp/nvim-autopairs',
     event = "InsertEnter",
+    config = true
   },
 
   -- auto close
@@ -33,7 +34,7 @@ return {
       --vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
 
       local cmp = require("cmp")
-      local defaults = require("cmp.config.default")()
+      --local defaults = require("cmp.config.default")()
       local autopairs = require('nvim-autopairs.completion.cmp')
 
       cmp.event:on(

@@ -79,8 +79,8 @@ return {
       --local actions = require "fzf-lua.actions"
       require "fzf-lua".setup({
         winopts = {
-          width = 0.70, 
-          height = 0.40, 
+          width = 0.85, 
+          height = 0.70, 
           row = 0.1, 
         }, 
       })

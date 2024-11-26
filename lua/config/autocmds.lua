@@ -17,3 +17,9 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt.softtabstop = 2
   end,
 })
+
+vim.api.nvim_create_autocmd("bufWritePost", {
+  pattern = "*.py",
+  command = "silent !black %",
+  group = vim.api.nvim_create_augroup("Black", { clear = true })
+})

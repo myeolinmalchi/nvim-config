@@ -36,6 +36,7 @@ vim.opt.scrolloff = 4
 vim.opt.writebackup = false
 vim.opt.viewoptions:remove('options')
 vim.opt.path:append('**')
+vim.opt.breakindent = true
 --vim.g.base16colorspace = 256
 vim.opt.inccommand = 'nosplit'
 vim.diagnostic.config {

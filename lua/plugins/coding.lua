@@ -13,6 +13,15 @@ return {
     init = function()
       require("autoclose").setup()
     end
+
+  },
+
+  -- tailwind-fold
+  {
+    'razak17/tailwind-fold.nvim',
+    opts= {},
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    ft = { 'html', 'svelte', 'astro', 'vue', 'typescriptreact', 'php', 'blade' },
   },
 
   -- auto completion

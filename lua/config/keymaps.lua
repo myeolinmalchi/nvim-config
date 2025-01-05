@@ -2,7 +2,7 @@ vim.g.mapleader = " "
 
 local opts = { noremap = true, silent = true }
 
-local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 local cmd = vim.api.nvim_command
 
 -- Modes
@@ -19,15 +19,18 @@ keymap('n', 'k', 'gk', opts)
 keymap('n', 'gj', 'j', opts)
 keymap('n', 'gk', 'k', opts)
 
+-- Better paste
+keymap('', 'p', '"0p', { noremap = true, vmap = true, silent = true })
+
 
 -- Clear search highlights
 keymap('n', '<esc>', ':noh<CR><CR>', opts)
 
 -- Better window movement
-keymap('', '<C-h>', '<C-w>h', { noremap = true })
-keymap('', '<C-j>', '<C-w>j', { noremap = true })
-keymap('', '<C-k>', '<C-w>k', { noremap = true })
-keymap('', '<C-l>', '<C-w>l', { noremap = true })
+keymap({'n','i'}, '<C-h>', '<C-w>h', opts)
+keymap({'n','i'}, '<C-j>', '<C-w>j', opts)
+keymap({'n','i'}, '<C-k>', '<C-w>k', opts)
+keymap({'n','i'}, '<C-l>', '<C-w>l', opts)
 
 -- Save current file
 keymap('n', '<C-s>', ':w<CR>', opts)
@@ -38,7 +41,7 @@ keymap('n', '<leader>h', '', {
   noremap = true,
   silent = true,
   callback = function()
-    cmd('leftabove vnew')
+    cmd('leftabove vsplit | enew')
     cmd('bp|sp|bn|bd')
     cmd('Neotree filesystem current')
   end
@@ -47,8 +50,8 @@ keymap('n', '<leader>l', '', {
   noremap = true,
   silent = true,
   callback = function()
-    cmd('rightbelow vnew')
-    cmd('bp|sp|bn|bd')
+    cmd('rightbelow vsplit | enew')
+    --cmd('bp|sp|bn|bd')
     cmd('Neotree filesystem current')
   end
 })

@@ -13,4 +13,4 @@ vim.opt.rtp:prepend(lazypath)
 
 require "config"
 require "lazy".setup "plugins"
-vim.cmd[[colorscheme gruvbox]]
+vim.cmd[[colorscheme tokyonight-night]]

@@ -109,6 +109,7 @@ return {
     event = "VeryLazy", 
     opts = {
       options = {
+        --[[
         offsets = {
           {
             filetype = "neo-tree", 
@@ -118,16 +119,10 @@ return {
             separator = true
           }
         },
-        numbers = "buffer_id", 
+        ]]--
+        numbers = "buffer_id",
         color_icons = true, 
         diagnostics = "nvim_lsp", 
-        diagnostics_indicator = function(count, level, diagnostics_dict, context)
-          if context.buffer:current() then
-            return ''
-          end
-
-          return ''
-        end, 
         indicator = {
           icon = '▎', -- this should be omitted if indicator style is not 'icon'
           style = 'icon'

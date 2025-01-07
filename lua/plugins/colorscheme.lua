@@ -1,9 +1,9 @@
 return {
-  --[[
   {
     "folke/tokyonight.nvim", 
-    lazy = true, 
+    lazy = true,
     opts = {
+      style = "night",
       transparent = false,
       terminal_colors = true,
       styles = {
@@ -12,8 +12,7 @@ return {
       },
       lualine_bold = true,
     }
-  }, 
-  ]]--
+  },
   { "ellisonleao/gruvbox.nvim", priority = 1000 , config = function()
     require("gruvbox").setup({
       terminal_colors = true, -- add neovim terminal colors
@@ -40,6 +39,6 @@ return {
       transparent_mode = false,
     })
   end
-    , opts = ...}
+  , opts = ...}
   --{ "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
 }

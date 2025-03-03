@@ -107,13 +107,14 @@ return {
 
   },
 
-  -- tailwind-fold
+  -- tailwind-fold 
+  --[[
   {
     'razak17/tailwind-fold.nvim',
     opts= {},
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     ft = { 'html', 'svelte', 'astro', 'vue', 'typescriptreact', 'php', 'blade' },
-  },
+  }, ]]--
 
   -- auto completion
   {
@@ -195,9 +196,9 @@ return {
         }),
         sources = cmp.config.sources({
           --{ name = 'copilot',  group_index = 2 },
-          { name = 'vsnip',    group_index = 2 },
-          { name = 'nvim_lsp', group_index = 2 },
-          { name = 'path',     group_index = 2 },
+          { name = 'nvim_lsp', group_index = 2, max_item_count=10 },
+          { name = 'vsnip',    group_index = 2, max_item_count=5 },
+          { name = 'path',     group_index = 2, max_item_count=5 },
         }, {
           { name = 'buffer' }
         }),

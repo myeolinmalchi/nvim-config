@@ -20,6 +20,6 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd("bufWritePost", {
   pattern = "*.py",
-  command = "silent !black %",
-  group = vim.api.nvim_create_augroup("Black", { clear = true })
+  command = "silent !yapf --in-place %",
+  group = vim.api.nvim_create_augroup("YAPF", { clear = true })
 })

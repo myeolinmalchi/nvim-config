@@ -1,8 +1,12 @@
 return {
+  --[[
   {
+    
     "karb94/neoscroll.nvim",
     opts = {},
   },
+  --]]
+  --[[
   {
     "folke/noice.nvim",
     event = "VeryLazy",
@@ -18,6 +22,7 @@ return {
       "rcarriga/nvim-notify",
       }
   },
+  ]]--
   -- file explorer
   {
     "nvim-neo-tree/neo-tree.nvim",

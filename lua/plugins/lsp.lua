@@ -147,6 +147,7 @@ return {
   },
 
   -- null-ls
+  --[[
   {
     'jose-elias-alvarez/null-ls.nvim',
     opts = function()
@@ -182,6 +183,7 @@ return {
       }
     end,
   },
+  ]]--
 
   -- eslint
   {

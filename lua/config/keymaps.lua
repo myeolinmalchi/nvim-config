@@ -91,3 +91,27 @@ keymap('n', '<Leader>cr', ':LspRestart<CR>', opts)
 
 -- Choose buffer in tabline
 keymap('', 'gt', ':BufferLinePick<CR>', opts)
+
+-- Neotree
+keymap('', '<leader>nt', ':Neotree filesystem current reveal toggle<CR>', {noremap = true, silent = true})
+
+-- Gemini CLI
+local Terminal  = require('toggleterm.terminal').Terminal
+local gemini = Terminal:new({ 
+  cmd = "gemini", 
+  hidden = true,
+  direction = "vertical",
+  on_open = function(term)
+    vim.cmd("startinsert!")
+    vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", {noremap = true, silent = true})
+  end,
+  on_close = function(term)
+    vim.cmd("startinsert!")
+  end
+})
+
+function _gemini_toggle()
+  gemini:toggle()
+end
+
+vim.api.nvim_set_keymap("n", "<leader>gm", "<cmd>lua _gemini_toggle()<CR>", {noremap = true, silent = true})

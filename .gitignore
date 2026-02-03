@@ -1,0 +1,24 @@
+# Lazy.nvim lock file (optional - can be committed for reproducible builds)
+# lazy-lock.json
+
+# Plugin data
+pack/
+
+# Session files
+Session.vim
+.session/
+
+# Undo files
+.undodir/
+
+# Swap files
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local overrides (for personal customizations)
+lua/config/local.lua
